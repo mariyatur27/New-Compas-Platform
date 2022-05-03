@@ -17,3 +17,7 @@ def tutor_reg():
 @bp.route("/login", methods=("GET",))
 def login():
     return render_template("login.html")
+
+@bp.route("/student_dashboard", methods=['POST'])
+def student_dashboard():
+    return render_template("student_dashboard.html")

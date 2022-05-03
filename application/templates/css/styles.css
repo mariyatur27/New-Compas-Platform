@@ -53,3 +53,16 @@ button.submit-btn {
     text-align: center;
     font-weight: 600;
 }
+.row{
+    display: flex;
+}
+.portfolio {
+    background-color: #b5ffb5;
+    padding: 6% 2%;
+    border-radius: 20px;
+    width: 20%;
+}
+span.portfolio-data {
+    font-weight: 100;
+    margin-left: 13%;
+}
