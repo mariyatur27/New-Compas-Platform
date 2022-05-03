@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Compass Website</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="centered">
+        <h1 class="title">Student Registration</h1>
+    </div>
+
+    <div class="reg-slides">
+        <div class="slide active" id="slide-1">
+            <input class="reg-question ques1" type="text" placeholder="Student's full name (ex: Mark Clarkson)" /><br>
+            <input class="reg-question ques1" type="text" placeholder="Parents's full name (ex: Mark Clarkson)" /><br>
+            <input class="reg-question ques1" type="text" placeholder="Student's email (ex: student@gmail.com)" /><br>
+            <input class="reg-question ques1" type="text" placeholder="Parent's email (ex: parent@gmail.com)" /><br>
+            <button class="submit-btn" id="next-1">Next</button><br>
+            <span id="missing-text-1" class="alert"></span>
+        </div>
+
+        <div class="slide" id="slide-2">
+            <input class="reg-question ques2" type="text" placeholder="Student's school (ex: Cameron Heights)" /><br>
+            <input class="reg-question ques2" type="number" placeholder="Student's grade at school" min="1" max="12"  /><br>
+            <input class="reg-question ques2" type="text" placeholder="Student's email (ex: student@gmail.com)" /><br>
+            <input class="reg-question ques2" type="text" placeholder="Parent's email (ex: parent@gmail.com)" /><br>
+            <button class="submit-btn" id="back-1">Back</button>
+            <button class="submit-btn" id="next-2">Next</button>
+        </div>
+
+        <div class="slide" id="slide-3">
+            <input class="reg-question" type="text" placeholder="Student's full name (ex: Mark Clarkson)" /><br>
+            <input class="reg-question" type="text" placeholder="Parents's full name (ex: Mark Clarkson)" /><br>
+            <input class="reg-question" type="text" placeholder="Student's email (ex: student@gmail.com)" /><br>
+            <button class="submit-btn" id="back-2">Back</button>
+            <button class="submit-btn" type="submit">Sign Up</button>
+        </div>
+    </div>
+
+    <div class="slide-counters">
+        <span class="slide-counter active">1</span>
+        <span class="slide-counter">2</span>
+        <span class="slide-counter">3</span>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

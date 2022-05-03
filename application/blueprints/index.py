@@ -15,5 +15,5 @@ def tutor_reg():
     return render_template("tutor_reg.html")
 
 @bp.route("/login", methods=("GET",))
-def tutor_reg():
+def login():
     return render_template("login.html")
