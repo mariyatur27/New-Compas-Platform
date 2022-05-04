@@ -19,7 +19,7 @@ body {
 .slide.active{
     display: block;
 }
-input.reg-question {
+input.question {
     border: none;
     padding: 2.8% 4%;
     width: 81%;
@@ -32,6 +32,11 @@ span.slide-counter {
     padding: 1% 1.6%;
     margin-left: 2%;
 }
+
+.clickable {
+    cursor: pointer;
+}
+
 .slide-counter.active{
     background-color: #90e790;
 }
@@ -40,7 +45,7 @@ span.slide-counter {
     justify-content: center;
     margin-top: 1%;
 }
-button.submit-btn {
+button.submit-btn, button.slide-change-btn {
     border: none;
     padding: 1.5% 5%;
     border-radius: 33px;
