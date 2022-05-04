@@ -1,32 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-    <div class="centered">
-        <h1 class="title">Student Dashboard</h1>
-    </div>
-    <div class="row">
-        <div class="portfolio">
-            <h3>Student Name: <span class="portfolio-data">Test Format</span></h3>
-            <h3>Grade: <span class="portfolio-data"></span></h3>
-            <h3>Location: <span class="portfolio-data"></span></h3>
-            <h3>Prefered Video App: <span class="portfolio-data"></span></h3>
-            <h3>Personality Type: <span class="portfolio-data"></span></h3>
-            <div class="contact-info">
-                <a href="">Email</a>
-                <a href="">Telephone</a>
-            </div>
+{% extends "utils/layout.html" %}
+
+{% macro portfolio_data(label, value) %}
+    <h3>{{label}}: <span class="portfolio-data">{{value}}</span></h3>
+{% endmacro %}
+
+{% block body %}
+<div class="centered">
+    <h1 class="title">Student Dashboard</h1>
+</div>
+<div class="row">
+    <div class="portfolio">
+        {{ portfolio_data("Student Name", "Test Name") }}
+        {{ portfolio_data("Grade", 11) }}
+        {{ portfolio_data("Location", "Nowhere") }}
+        {{ portfolio_data("Prefered Video App", "Google Meet") }}
+        {{ portfolio_data("Personality Type", "A Person") }}
+        <div class="contact-info">
+            <a href="">Email</a>
+            <a href="">Telephone</a>
         </div>
     </div>
-    <script src="js/script.js"></script>
-</body>
-</html>
+</div>
+{% endblock %}

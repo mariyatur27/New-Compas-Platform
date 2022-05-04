@@ -1,53 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Compass Website</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-</head>
-<body>
+{% extends "utils/layout.html" %}
+{% block scripts %}
+    <script src="{{url_for("static", filename="js/multi_slide_form.js")}}" defer></script>
+{% endblock %}
+{% block body %}
     <div class="centered">
         <h1 class="title">Student Registration</h1>
     </div>
 
-    <form class="reg-slides" action="/student_dashboard" method="POST">
-        <div class="slide active" id="slide-1">
-            <input class="reg-question ques1" type="text" placeholder="Student's full name (ex: Mark Clarkson)" /><br>
-            <input class="reg-question ques1" type="text" placeholder="Parents's full name (ex: Mark Clarkson)" /><br>
-            <input class="reg-question ques1" type="text" placeholder="Student's email (ex: student@gmail.com)" /><br>
-            <input class="reg-question ques1" type="text" placeholder="Parent's email (ex: parent@gmail.com)" /><br>
-            <button class="submit-btn" id="next-1">Next</button><br>
-            <span id="missing-text-1" class="alert"></span>
+    <form class="reg-slides multi-slide-form" id="multi-slide-form" action="/student_dashboard" method="POST">
+        <div class="slide first-slide" id="slide1">
+            <input class="question required-question" type="text" placeholder="Student's Full Name (ex: Mark Clarkson)" /><br>
+            <input class="question required-question" type="text" placeholder="Parents's Full Name (ex: Mark Clarkson)" /><br>
+            <input class="question required-question" type="email" placeholder="Parent's Email (ex: parent@gmail.com)" /><br>
+            <input class="question" type="email" placeholder="Student's Email (ex: student@gmail.com)" /><br>
+            <input class="question" type="tel" placeholder="Parent's Phone Number" /><br>
+            <button class="next-slide slide-change-btn" id="next-1" type="button">Next</button><br>
         </div>
 
-        <div class="slide" id="slide-2">
-            <input class="reg-question ques2" type="text" placeholder="Student's school (ex: Cameron Heights)" /><br>
-            <input class="reg-question ques2" type="number" placeholder="Student's grade at school" min="1" max="12"  /><br>
-            <input class="reg-question ques2" type="text" placeholder="Student's email (ex: student@gmail.com)" /><br>
-            <input class="reg-question ques2" type="text" placeholder="Parent's email (ex: parent@gmail.com)" /><br>
-            <button class="submit-btn" id="back-1">Back</button>
-            <button class="submit-btn" id="next-2">Next</button>
+        <div class="slide" id="slide2">
+            <input class="question required-question" type="number" placeholder="Student's Grade at School" min="1" max="13" /><br>
+            <input class="question" type="text" placeholder="Student's School (ex: Cameron Heights)" /><br>
+            <input class="question required-question" type="text" placeholder="Student's Timezone" /><br>
+            <input class="question required-question" type="text" placeholder="Prefered Video Call Platform" /><br>
+            <button class="prev-slide slide-change-btn" id="back-1" type="button">Back</button>
+            <button class="next-slide slide-change-btn" id="next-2" type="button">Next</button>
         </div>
 
-        <div class="slide" id="slide-3">
-            <input class="reg-question" type="text" placeholder="Student's full name (ex: Mark Clarkson)" /><br>
-            <input class="reg-question" type="text" placeholder="Parents's full name (ex: Mark Clarkson)" /><br>
-            <input class="reg-question" type="text" placeholder="Student's email (ex: student@gmail.com)" /><br>
-            <button class="submit-btn" id="back-2">Back</button>
+        <div class="slide last-slide" id="slide3">
+            <input class="question" type="text" placeholder="Student's full name (ex: Mark Clarkson)" /><br>
+            <input class="question" type="text" placeholder="Parents's full name (ex: Mark Clarkson)" /><br>
+            <input class="question" type="text" placeholder="Student's email (ex: student@gmail.com)" /><br>
+            <button class="prev-slide slide-change-btn" id="back-2" type="button">Back</button>
             <button class="submit-btn" type="submit">Sign Up</button>
         </div>
     </form>
 
     <div class="slide-counters">
-        <span class="slide-counter active">1</span>
-        <span class="slide-counter">2</span>
-        <span class="slide-counter">3</span>
+        <span class="slide-counter clickable" id="slide-counter1">1</span>
+        <span class="slide-counter clickable" id="slide-counter2">2</span>
+        <span class="slide-counter clickable" id="slide-counter3">3</span>
     </div>
 
-    <script src="js/script.js"></script>
-</body>
-</html>
+{% endblock %}
