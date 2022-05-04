@@ -28,19 +28,20 @@ function validate_slide() {
 }
 
 for (let slide of document.getElementsByClassName("slide")) {
-    for (let button of slide.getElementsByClassName("next-slide")) {
-        button.addEventListener("click", function () {
-            if (validate_slide()) {
-                slide_number++;
+    for (let button of slide.getElementsByClassName("slide-change-btn")) {
+        if (button.classList.contains("next-slide")) { 
+            button.addEventListener("click", function () {
+                if (validate_slide()) {
+                    slide_number++;
+                    update_slide();
+                }
+            });
+        } else if (button.classList.contains("prev-slide")) {
+            button.addEventListener("click", function () {
+                slide_number--;
                 update_slide();
-            }
-        });
-    }
-    for (let button of slide.getElementsByClassName("prev-slide")) {
-        button.addEventListener("click", function () {
-            slide_number--;
-            update_slide();
-        });
+            });
+        }
     }
 }
 
