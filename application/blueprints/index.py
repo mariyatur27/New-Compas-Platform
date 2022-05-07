@@ -1,15 +1,21 @@
-from flask import Blueprint, render_template
+from flask import Blueprint
+from .urls import urls
 
 bp = Blueprint("index", __name__, url_prefix="/")
 
-@bp.route("/", methods=("GET",))
-def home():
-    return render_template("index.html")
 
-@bp.route("/tutor_registration", methods=("GET",))
-def tutor_reg():
-    return render_template("tutor_reg.html")
+@bp.route('/', defaults={'path': ''})
+@bp.route('/<path:path>', methods=("GET",))
+def catch_all(path):
+    path_address = path.split("/")
+    print(path_address)
+    if len(path_address) > 1:
+        address = urls["/" + path_address[0]]["/" + path_address[1]]
 
-@bp.route("/login", methods=("GET",))
-def login():
-    return render_template("login.html")
+    else:
+        if path_address[0] == '':
+            path_address[0] = 'home'
+
+        address = urls['/main']['/' + path_address[0]]
+
+    return address
