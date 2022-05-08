@@ -19,12 +19,27 @@ function toggle_required(slide, required) {
     for (let input of inputs) {
         if (input.classList.contains("required-question")) {
             input.required = required;
+        } else if (input.required) {
+            input.classList.add("required-question");
+            input.required = required;
         }
     }
 }
 
 function validate_slide() {
-    return document.getElementById("multi-slide-form").reportValidity();
+    let form = document.getElementById("multi-slide-form");
+    let slide = document.getElementById("slide" + slide_number);
+    for (let input of slide.getElementsByTagName("input")) {
+        let validity = input.validity;
+        if (!validity.valid) {
+            let error_message = input.getAttribute("error_message");
+            if (error_message != null) {
+                input.setCustomValidity(error_message);
+            }
+            break;
+        }
+    }
+    return form.reportValidity();
 }
 
 for (let slide of document.getElementsByClassName("slide")) {

@@ -8,38 +8,22 @@
     </div>
 
 
-    <form class="reg-slides multi-slide-form" id="multi-slide-form" action="/student_dashboard" method="POST">
+    <form class="reg-slides multi-slide-form" id="multi-slide-form" method="POST">
         <div class="slide first-slide" id="slide1">
-            <form method="post">
-                {{ form.csrf_token }}
-                {{ form.student_name }}<br>
-                {{ form.parent_name }}<br>
-                {{ form.parent_email }}<br>
-                {{ form.student_email }}<br>
-                {{ form.parent_number }}<br>
-            </form>
-
+                {{ form.csrf_token }}{{ form.student_name(class="question", placeholder="Student's Full Name") }}<br>
+                {{ form.parent_name(class="question", placeholder="Parent's Full Name") }}<br>
+                {{ form.student_email(class="question", placeholder="Student's Email") }}<br>
+                {{ form.parent_email(class="question", placeholder="Parent's Email") }}<br>
+                {{ form.parent_phone_number(class="question", placeholder="Parent's Phone Number (Optional)", error_message="Please enter a valid phone number.", pattern="(?:\+\d{1,2})?\(?\d{3}\)?(?:-| *)?\d{3}(?:-| *)?\d{4}") }}<br>
             <button class="next-slide slide-change-btn" id="next-1" type="button">Next</button><br>
         </div>
 
-        <div class="slide" id="slide2">
-            <form method="post">
-                {{ form.csrf_token }}
-                {{ form.student_grade }}<br>
-                {{ form.student_school }}<br>
-                {{ form.student_timezone }}<br>
-            </form>
+        <div class="slide last-slide" id="slide2">
+            {{ form.student_grade(class="question", placeholder="Student's Grade") }}<br>
+            {{ form.student_school(class="question", placeholder="Student's School (Optional)") }}<br>
+            {{ form.student_timezone(class="question", placeholder="Timezone") }}<br>
+            {{ form.password(class="question", placeholder="Password", autocomplete="new-password") }}<br>
             <button class="prev-slide slide-change-btn" id="back-1" type="button">Back</button>
-            <button class="next-slide slide-change-btn" id="next-2" type="button">Next</button>
-        </div>
-
-        <div class="slide last-slide" id="slide3">
-            <form method="post">
-                {{ form.csrf_token }}
-                {{ form.username }}<br>
-                {{ form.password }}<br>
-            </form>
-            <button class="prev-slide slide-change-btn" id="back-2" type="button">Back</button>
             <button class="submit-btn" type="submit">Sign Up</button>
         </div>
     </form>
@@ -47,7 +31,6 @@
     <div class="slide-counters">
         <span class="slide-counter clickable" id="slide-counter1">1</span>
         <span class="slide-counter clickable" id="slide-counter2">2</span>
-        <span class="slide-counter clickable" id="slide-counter3">3</span>
     </div>
 
 {% endblock %}
