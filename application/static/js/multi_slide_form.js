@@ -31,12 +31,16 @@ function validate_slide() {
     let slide = document.getElementById("slide" + slide_number);
     for (let input of slide.getElementsByTagName("input")) {
         let validity = input.validity;
+        let error_message = input.getAttribute("error_message");
         if (!validity.valid) {
-            let error_message = input.getAttribute("error_message");
             if (error_message != null) {
                 input.setCustomValidity(error_message);
             }
             break;
+        } else {
+            if (error_message != null) {
+                input.setCustomValidity("");
+            }
         }
     }
     return form.reportValidity();
@@ -70,6 +74,14 @@ for (let slideCounter of document.getElementsByClassName("slide-counter")) {
             }
         }
     });
+}
+
+for (let input of document.getElementsByClassName("question")) {
+    if (input.attributes.getNamedItem("error_message") != null) {
+        input.addEventListener("input", () => {
+            input.setCustomValidity("");
+        });
+    }
 }
 
 update_slide();
