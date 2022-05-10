@@ -1,4 +1,46 @@
 {% extends "utils/layout.html" %}
-{% block body %}
-    <h2>Tutor Registration</h2>
+{% block links %}
+    <script src="{{url_for("static", filename="js/multi_slide_form.js")}}" defer></script>
 {% endblock %}
+{% block body %}
+    <div class="centered">
+        <h1 class="title">Tutor Registration</h1>
+    </div>
+
+
+    <form class="reg-slides multi-slide-form" id="multi-slide-form" action="/student_dashboard" method="POST">
+        <div class="slide first-slide" id="slide1">
+            <form method="post">
+                {{ form.csrf_token }}
+
+            </form>
+
+            <button class="next-slide slide-change-btn" id="next-1" type="button">Next</button><br>
+        </div>
+
+        <div class="slide" id="slide2">
+            <form method="post">
+                {{ form.csrf_token }}
+
+            </form>
+            <button class="prev-slide slide-change-btn" id="back-1" type="button">Back</button>
+            <button class="next-slide slide-change-btn" id="next-2" type="button">Next</button>
+        </div>
+
+        <div class="slide last-slide" id="slide3">
+            <form method="post">
+                {{ form.csrf_token }}
+                
+            </form>
+            <button class="prev-slide slide-change-btn" id="back-2" type="button">Back</button>
+            <button class="submit-btn" type="submit">Sign Up</button>
+        </div>
+    </form>
+
+    <div class="slide-counters">
+        <span class="slide-counter clickable" id="slide-counter1">1</span>
+        <span class="slide-counter clickable" id="slide-counter2">2</span>
+        <span class="slide-counter clickable" id="slide-counter3">3</span>
+    </div>
+{% endblock %}
+
