@@ -12,4 +12,6 @@ class StudentRegistrationForm(FlaskForm):
     student_grade = IntegerField(validators=[validators.InputRequired()])
     student_school = StringField(validators=[validators.Optional()])
     student_timezone = StringField(validators=[validators.InputRequired()])
+    student_video_platform = StringField(validators=[validators.InputRequired()])
     password = PasswordField(validators=[validators.InputRequired()])
+    password_confirm = PasswordField(validators=[validators.InputRequired()])

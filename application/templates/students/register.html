@@ -11,17 +11,19 @@
         <div class="slide first-slide" id="slide1">
                 {{ form.csrf_token }}{{ form.student_name(class="question", placeholder="Student's Full Name") }}<br>
                 {{ form.parent_name(class="question", placeholder="Parent's Full Name") }}<br>
-                {{ form.student_email(class="question", placeholder="Student's Email") }}<br>
-                {{ form.parent_email(class="question", placeholder="Parent's Email") }}<br>
+                {{ form.student_email(class="question", placeholder="Student's Email Adress") }}<br>
+                {{ form.parent_email(class="question", placeholder="Parent's Email Adress") }}<br>
                 {{ form.parent_phone_number(class="question", placeholder="Parent's Phone Number (Optional)", error_message="Please enter a valid phone number.", pattern="(?:\+\d{1,2})?\(?\d{3}\)?(?:-| *)?\d{3}(?:-| *)?\d{4}") }}<br>
             <button class="next-slide slide-change-btn clickable" id="next-1" type="button">Next</button><br>
         </div>
 
         <div class="slide last-slide" id="slide2">
-            {{ form.student_grade(class="question", placeholder="Student's Grade") }}<br>
+            {{ form.student_grade(class="question", placeholder="Student's Grade in School") }}<br>
             {{ form.student_school(class="question", placeholder="Student's School (Optional)") }}<br>
-            {{ form.student_timezone(class="question", placeholder="Timezone") }}<br>
+            {{ form.student_timezone(class="question", placeholder="Timezone / Country") }}<br>
+            {{ form.student_video_platform(class="question", placeholder="Prefered Video Call Platform") }}<br>
             {{ form.password(class="question", placeholder="Password", autocomplete="new-password") }}<br>
+            {{ form.password_confirm(class="question", placeholder="Confirm Password") }}<br>
             <button class="prev-slide slide-change-btn clickable" id="back-1" type="button">Back</button>
             <button class="submit-btn clickable" type="submit">Sign Up</button>
         </div>
